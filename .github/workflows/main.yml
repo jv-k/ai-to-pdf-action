@@ -19,7 +19,7 @@ jobs:
         uses: ./ # Uses action in the root directory
         with:
           INPUT_FILE: '.github/workflows/testfile-in.ai'
-          OUTPUT_FILE: '.github/workflows/testfile-out.pdf'
+          OUTPUT_FILE: 'testfile-out.pdf'
           OPTIONAL_PARAMS: '-dCompatibilityLevel=1.4 -dPDFSETTINGS=/printer'
           GITHUB_TOKEN: ${{ github.token }}
 
@@ -32,4 +32,4 @@ jobs:
           du -h output.pdf
 
           echo "Output file:"
-          du -h .github/workflows/testfile-out.pdf
+          du -h testfile-out.pdf

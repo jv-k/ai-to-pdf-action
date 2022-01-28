@@ -28,14 +28,22 @@ if [ -f "$OUTPUT_FILE" ]; then
 fi
 
 
+
+# Copy the name and email from the last commit
+cmd_set_email='git config --local user.email "$(git log --format='"'"'%ae'"'"' HEAD^!)"'
+cmd_set_name='git config --local user.name "$(git log --format='"'"'%an'"'"' HEAD^!)"'
+
 cmd_gs='gs ${DEFAULT_PARAMS} -sOutputFile=${OUTPUT_FILE} ${OPTIONAL_PARAMS} ${INPUT_FILE}'
+
 cmd_stage='git add ${OUTPUT_FILE}'
-cmd_setup_commit='git config user.name "GitHub Actions Bot" && git config user.email "<>"'
 cmd_commit='git commit -m "${COMMIT_MESSAGE}"'
 cmd_push='git push origin master'
 
-eval "$cmd_gs" \
-  && eval "$cmd_stage" \
-  && eval "$cmd_setup_commit" \
-  && eval "$cmd_commit" \
-  && eval "$cmd_push"
+eval "$cmd_set_email" \
+&& eval "$cmd_set_name" \
+&& eval "$cmd_gs" \
+&& eval "$cmd_stage" \
+&& eval "$cmd_commit" \
+&& eval "$cmd_push"
+
+# && eval "$cmd_setup_commit" \
