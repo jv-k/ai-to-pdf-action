@@ -32,4 +32,4 @@ jobs:
           du -h output.pdf
 
           echo "Output file:"
-          du -h .github/workflows/testfile-out.pdf
+          du -h testfile-out.pdf
