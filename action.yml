@@ -1,0 +1,47 @@
+# action.yml
+name: 'ai-to-pdf-action'
+author: jv-k
+description: 'Github Actions to convert an Adobe Illustrator 👉🏻 PDF'
+
+inputs:
+  GITHUB_TOKEN:
+    description: Secret GitHub API token used to make API requests or git authentication.
+    default: ${{ github.token }}
+    required: true
+  INPUT_FILE:
+    description: 'The filepath of the .ai file to convert'
+    required: true
+  OUTPUT_FILE:
+    description: 'The filepath of the resulting PDF file'
+    default: 'output.pdf'
+    required: false
+  OPTIONAL_PARAMS:
+    description: 'Extra arguments to be passed to Ghostscript (except sDEVICE, dNOPAUSE, dQUIET, dBATCH and sOutputFile, which cannot be set)'
+    required: false
+  COMMIT_MESSAGE:
+    description: Commit message
+    required: true
+    default: 'chore: Converted AI 👉🏻 PDF'
+  COMMIT_NAME:
+    description: Git commit name.
+    default: ''
+    required: false
+  COMMIT_EMAIL:
+    description: Git commit email.
+    default: ''
+    required: false
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.INPUT_FILE }}
+    - ${{ inputs.OUTPUT_FILE }}
+    - ${{ inputs.OPTIONAL_PARAMS }}
+    - ${{ inputs.COMMIT_MESSAGE }}
+    - ${{ inputs.COMMIT_NAME }}
+    - ${{ inputs.COMMIT_EMAIL }}
+
+branding:
+  icon: book-open
+  color: red

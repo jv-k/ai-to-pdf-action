@@ -1,0 +1,35 @@
+name: Test the action
+on: [push]
+
+jobs:
+  test_action:
+    runs-on: ubuntu-latest
+    name: Check if everything still works
+    steps:
+      # To use this repository's private action, you must check out the repository
+      - name: Checkout repo
+        uses: actions/checkout@v2
+      
+      - name: Test conversion with default paramaters
+        uses: ./ # Uses action in the root directory
+        with:
+          INPUT_FILE: '.github/workflows/testfile-in.ai'
+
+      - name: Test conversion with optional paramaters
+        uses: ./ # Uses action in the root directory
+        with:
+          INPUT_FILE: '.github/workflows/testfile-in.ai'
+          OUTPUT_FILE: '.github/workflows/testfile-out.pdf'
+          OPTIONAL_PARAMS: '-dCompatibilityLevel=1.4 -dPDFSETTINGS=/printer'
+          GITHUB_TOKEN: ${{ github.token }}
+
+      - name: Display results
+        run: |
+          echo "Input file:"
+          du -h .github/workflows/testfile-in.ai
+
+          echo "Default option file:"
+          du -h output.pdf
+
+          echo "Output file:"
+          du -h .github/workflows/testfile-out.pdf
