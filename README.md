@@ -2,21 +2,11 @@
 
 This workflow action uses [Ghostscript](https://www.ghostscript.com/) to convert Adobe Illustrator `.ai` files to `.pdf`.
 
-## Parameters
-
-### `INPUT_FILE`
-
-**Required** The .AI file to be converted.
-
-### `OUTPUT_FILE`
-
-The name of the resulting PDF file.  
-
-Default value: `"output.pdf"`.
-
-### `OPTIONAL_PARAMS`
-
-Additional arguments to be passed to Ghostscript (except sDEVICE, dNOPAUSE, dQUIET, dBATCH and sOutputFile that cannot be set)
+| Parameter | Description | Required |
+|-|-|-|
+|`INPUT_FILE`| The .AI file to be converted. | Yes |
+|`OUTPUT_FILE`| The name of the resulting PDF file. <br/> Default value: `output.pdf` | No |
+|`OPTIONAL_PARAMS`| Additional arguments to be passed to Ghostscript. <br/>The following are already used by this Action and **cannot** be set: `sDEVICE`, `dNOPAUSE`, `dQUIET`, `dBATCH` `sOutputFile` | No |
 
 ## Example usage
 
