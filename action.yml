@@ -5,16 +5,19 @@ description: 'Github Actions to convert an Adobe Illustrator 👉🏻 PDF'
 
 inputs: 
   INPUT_FILE:
-    description: 'The filepath of the .ai file to convert'
+    description: The filepath of the .ai file to convert
     required: true
   OUTPUT_FILE:
-    description: 'The filepath of the resulting PDF file'
+    description: The filepath of the resulting PDF file
     default: 'build/output.pdf'
     required: false
   OPTIONAL_PARAMS:
     description: 'Extra arguments to be passed to Ghostscript (except sDEVICE, dNOPAUSE, dQUIET, dBATCH and sOutputFile, which cannot be set)'
     required: false
-
+  OVERWRITE:
+    description: Whether to overwrite existing files
+    required: false
+    default: 'true'
   GH_REPO:
     description: 'Repository name to push to'
     default: ${{ github.repository }}
@@ -45,6 +48,7 @@ runs:
     - ${{ inputs.INPUT_FILE }}
     - ${{ inputs.OUTPUT_FILE }}
     - ${{ inputs.OPTIONAL_PARAMS }}
+    - ${{ inputs.OVERWRITE }}
     - ${{ inputs.GH_REPO }}
     - ${{ inputs.GH_BRANCH }}
     - ${{ inputs.GH_COMMIT_MESSAGE }}

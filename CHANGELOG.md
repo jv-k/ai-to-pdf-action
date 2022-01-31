@@ -1,3 +1,9 @@
+## 1.0.3 (January 31, 2022)
+- Updated package.json, Updated CHANGELOG.md, Bumped 1.0.2 –> 1.0.3
+- Merge branch 'release-1.0.2' into dev
+- docs: Documented some of the new Action options
+- feature: Added overwrite file option (on by default)
+
 ## 1.0.2 (January 31, 2022)
 - Updated package.json, Created CHANGELOG.md, Bumped 1.0.0 –> 1.0.2
 - Merge branch 'dev'

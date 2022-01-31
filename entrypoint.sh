@@ -16,19 +16,19 @@ GS_INPUT_FILE=${1}
 GS_OUTPUT_FILE=${2}
 GS_OPTIONAL_PARAMS=${3}
 GS_DEFAULT_PARAMS="-sDEVICE=pdfwrite -dNOPAUSE -dQUIET -dBATCH"
+OVERWRITE=${4}
+GH_REPO=${5}
+GH_BRANCH=${6}
+GH_COMMIT_MESSAGE=${7}
 
-GH_REPO=${4}
-GH_BRANCH=${5}
-GH_COMMIT_MESSAGE=${6}
-
-GITHUB_ACTOR=${7}
-GITHUB_TOKEN=${8}
+GITHUB_ACTOR=${8}
+GITHUB_TOKEN=${9}
 
 if [ -z "$GS_INPUT_FILE" ] || [ ! -f "$GS_INPUT_FILE" ]; then
   error "Input file <${GS_INPUT_FILE}> is empty or doesn't exist."
 fi
 
-if [ -f "$GS_OUTPUT_FILE" ]; then
+if [ -f "$GS_OUTPUT_FILE" ] && {$OVERWRITE}; then
   error "Output file <${GS_OUTPUT_FILE}> already exists — please use another name."
 fi
 
