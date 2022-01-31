@@ -13,7 +13,7 @@ inputs:
     required: true
   OUTPUT_FILE:
     description: 'The filepath of the resulting PDF file'
-    default: 'output.pdf'
+    default: 'build/output.pdf'
     required: false
   OPTIONAL_PARAMS:
     description: 'Extra arguments to be passed to Ghostscript (except sDEVICE, dNOPAUSE, dQUIET, dBATCH and sOutputFile, which cannot be set)'
