@@ -16,15 +16,12 @@ inputs:
     required: false
 
   GH_REPO:
-    description: 'Repository name to push. ry ()'
+    description: 'Repository name to push to'
     default: ${{ github.repository }}
     required: false
   GH_BRANCH:
     description: 'Destination branch to push changes'
     default: ${{ github.ref	}}
-    required: true
-  GH_FORCE:
-    description: 'Determines if force push is used'
     required: false
 
   GH_COMMIT_MESSAGE:
@@ -50,8 +47,6 @@ runs:
     - ${{ inputs.OPTIONAL_PARAMS }}
     - ${{ inputs.GH_REPO }}
     - ${{ inputs.GH_BRANCH }}
-    - ${{ inputs.GH_FORCE }}
-    - ${{ inputs.GH_TAGS }}
     - ${{ inputs.GH_COMMIT_MESSAGE }}
     - ${{ inputs.GH_USER }}
     - ${{ inputs.GITHUB_TOKEN }}

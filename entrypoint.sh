@@ -37,14 +37,6 @@ fi
     exit 1;
 };
 
-if ${INPUT_FORCE}; then
-    _FORCE_OPTION='--force'
-fi
-
-if ${INPUT_TAGS}; then
-    _TAGS='--tags'
-fi
-
 cmd_gs='gs ${GS_DEFAULT_PARAMS} -sOutputFile=${GS_OUTPUT_FILE} ${GS_OPTIONAL_PARAMS} ${GS_INPUT_FILE}'
 
 # Copy the name and email from the last commit
@@ -57,7 +49,7 @@ cmd_stage="git add ${GS_OUTPUT_FILE}"
 cmd_commit="git commit -m \"${GH_COMMIT_MESSAGE}\""
 cmd_push="git push \"${remote_repo}\" HEAD:${GH_BRANCH}"
 
-eval "$cmd_set_email" && \ 
+eval "$cmd_set_email" && \
 eval "$cmd_set_name" && \
 eval "$cmd_gs" && \
 eval "$cmd_stage" && \
