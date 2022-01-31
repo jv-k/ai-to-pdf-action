@@ -26,9 +26,7 @@ inputs:
   GH_FORCE:
     description: 'Determines if force push is used'
     required: false
-  GH_TAGS:
-    description: 'Determines if --tags is used'
-    required: false
+
   GH_COMMIT_MESSAGE:
     description: Commit message
     required: true
@@ -50,7 +48,7 @@ runs:
     - ${{ inputs.INPUT_FILE }}
     - ${{ inputs.OUTPUT_FILE }}
     - ${{ inputs.OPTIONAL_PARAMS }}
-    - ${{ GITHUB_REPOSITORY }}
+    - ${{ inputs.GH_REPO }}
     - ${{ inputs.GH_BRANCH }}
     - ${{ inputs.GH_FORCE }}
     - ${{ inputs.GH_TAGS }}

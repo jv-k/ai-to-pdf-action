@@ -19,12 +19,10 @@ GS_DEFAULT_PARAMS="-sDEVICE=pdfwrite -dNOPAUSE -dQUIET -dBATCH"
 
 GH_REPO=${4}
 GH_BRANCH=${5}
-GH_FORCE=${6} #${$6:-false}
-GH_TAGS=${7} #${$7:-false}
-GH_COMMIT_MESSAGE=${8}
+GH_COMMIT_MESSAGE=${6}
 
-GITHUB_ACTOR=${9}
-GITHUB_TOKEN=${10}
+GITHUB_ACTOR=${7}
+GITHUB_TOKEN=${8}
 
 if [ -z "$GS_INPUT_FILE" ] || [ ! -f "$GS_INPUT_FILE" ]; then
   error "Input file <${GS_INPUT_FILE}> is empty or doesn't exist."
@@ -57,8 +55,7 @@ remote_repo="https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GH_REPO}.git"
 
 cmd_stage="git add ${GS_OUTPUT_FILE}"
 cmd_commit="git commit -m \"${GH_COMMIT_MESSAGE}\""
-cmd_push="git push \"${remote_repo}\" HEAD:${GH_BRANCH}" # --follow-tags $_FORCE_OPTION $_TAGS'
-
+cmd_push="git push \"${remote_repo}\" HEAD:${GH_BRANCH}"
 
 eval "$cmd_set_email" && \ 
 eval "$cmd_set_name" && \
