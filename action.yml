@@ -3,11 +3,7 @@ name: 'ai-to-pdf-action'
 author: jv-k
 description: 'Github Actions to convert an Adobe Illustrator 👉🏻 PDF'
 
-inputs:
-  GITHUB_TOKEN:
-    description: Secret GitHub API token used to make API requests or git authentication.
-    default: ${{ github.token }}
-    required: true
+inputs: 
   INPUT_FILE:
     description: 'The filepath of the .ai file to convert'
     required: true
@@ -18,18 +14,29 @@ inputs:
   OPTIONAL_PARAMS:
     description: 'Extra arguments to be passed to Ghostscript (except sDEVICE, dNOPAUSE, dQUIET, dBATCH and sOutputFile, which cannot be set)'
     required: false
-  COMMIT_MESSAGE:
+
+  GH_REPO:
+    description: 'Repository name to push to'
+    default: ${{ github.repository }}
+    required: false
+  GH_BRANCH:
+    description: 'Destination branch to push changes'
+    default: ${{ github.ref	}}
+    required: false
+
+  GH_COMMIT_MESSAGE:
     description: Commit message
     required: true
     default: 'chore: Converted AI 👉🏻 PDF'
-  COMMIT_NAME:
-    description: Git commit name.
-    default: ''
+  GH_USER:
+    description: The username of the user that will be used to commit the new files.
     required: false
-  COMMIT_EMAIL:
-    description: Git commit email.
-    default: ''
-    required: false
+    default: ${{ github.actor	}}
+
+  GITHUB_TOKEN:
+    description: Secret GitHub API token used to make API requests or git authentication.
+    default: ${{ github.token }}
+    required: true
 
 runs:
   using: 'docker'
@@ -38,9 +45,11 @@ runs:
     - ${{ inputs.INPUT_FILE }}
     - ${{ inputs.OUTPUT_FILE }}
     - ${{ inputs.OPTIONAL_PARAMS }}
-    - ${{ inputs.COMMIT_MESSAGE }}
-    - ${{ inputs.COMMIT_NAME }}
-    - ${{ inputs.COMMIT_EMAIL }}
+    - ${{ inputs.GH_REPO }}
+    - ${{ inputs.GH_BRANCH }}
+    - ${{ inputs.GH_COMMIT_MESSAGE }}
+    - ${{ inputs.GH_USER }}
+    - ${{ inputs.GITHUB_TOKEN }}
 
 branding:
   icon: book-open
