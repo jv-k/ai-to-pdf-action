@@ -32,3 +32,8 @@ jobs:
                 OPTIONAL_PARAMS: '-dCompatibilityLevel=1.4 -dPDFSETTINGS=/printer'  
 ```
 
+## Contributing
+I'd love you to contribute to `@jv-k/ai-to-pdf-action`, [pull requests](https://github.com/jv-k/ai-to-pdf-action/issues/new/choose) are welcome for submitting issues and bugs!
+
+## License
+The scripts and documentation in this project are released under the [MIT license](https://github.com/jv-k/ai-to-pdf-action/blob/master/LICENSE).
