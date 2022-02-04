@@ -1,3 +1,15 @@
+## 1.0.4 (February 04, 2022)
+- Updated package.json, Updated CHANGELOG.md, Bumped 1.0.3 –> 1.0.4
+- test: Refactor test to trigger only on main branch push
+- Merge branch 'master' into dev
+- chore: Converted AI 👉🏻 PDF
+- chore: Converted AI 👉🏻 PDF
+- chore: added gitignore
+- docs: Added license and contributing details
+- Merge branch 'release-1.0.3' into dev
+- Merge branch 'release-1.0.3'
+- Merge branch 'release-1.0.2'
+
 ## 1.0.3 (January 31, 2022)
 - Updated package.json, Updated CHANGELOG.md, Bumped 1.0.2 –> 1.0.3
 - Merge branch 'release-1.0.2' into dev
