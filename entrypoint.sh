@@ -39,6 +39,8 @@ fi
 
 cmd_gs='gs ${GS_DEFAULT_PARAMS} -sOutputFile=${GS_OUTPUT_FILE} ${GS_OPTIONAL_PARAMS} ${GS_INPUT_FILE}'
 
+cmd_set_safe_dir='git config --global --add safe.directory /github/workspace'
+
 # Copy the name and email from the last commit
 cmd_set_email='git config --local user.email "$(git log --format='"'"'%ae'"'"' HEAD^!)"'
 cmd_set_name='git config --local user.name "$(git log --format='"'"'%an'"'"' HEAD^!)"'
@@ -49,6 +51,7 @@ cmd_stage="git add ${GS_OUTPUT_FILE}"
 cmd_commit="git commit -m \"${GH_COMMIT_MESSAGE}\""
 cmd_push="git push \"${remote_repo}\" HEAD:${GH_BRANCH}"
 
+eval "$cmd_set_safe_dir" && \
 eval "$cmd_set_email" && \
 eval "$cmd_set_name" && \
 eval "$cmd_gs" && \
