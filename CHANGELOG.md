@@ -1,3 +1,16 @@
+## 1.0.5 (July 04, 2022)
+- chore: updated package.json, updated CHANGELOG.md, bumped 1.0.4 -> 1.0.5
+- chore: renamed CI task
+- chore: Converted AI 👉🏻 PDF
+- chore: Converted AI 👉🏻 PDF
+- Merge branch 'dev'
+- Merge branch 'release-1.0.4' into dev
+- chore: Converted AI 👉🏻 PDF
+- chore: Converted AI 👉🏻 PDF
+- chore: Merge branch 'release-1.0.4' into dev
+- chore: Merge branch 'release-1.0.4'
+- Updated package.json, Updated CHANGELOG.md, Bumped 1.0.3 –> 1.0.4
+
 ## 1.0.4 (February 04, 2022)
 - Updated package.json, Updated CHANGELOG.md, Bumped 1.0.3 –> 1.0.4
 - test: Refactor test to trigger only on main branch push
