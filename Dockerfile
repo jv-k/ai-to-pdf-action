@@ -1,5 +1,5 @@
 # Container image that runs your code
-FROM alpine:latest
+FROM alpine:3.16
 
 # Install ghostscript
 RUN apk --no-cache add ghostscript git
