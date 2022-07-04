@@ -1,6 +1,6 @@
 # Adobe Illustrator 👉🏻 PDF Action
 
-[![CI](https://github.com/jv-k/ai-to-pdf-action/actions/workflows/ci.yml/badge.svg)](https://github.com/jv-k/ai-to-pdf-action/actions/workflows/ci.yml)
+[![CI](https://github.com/jv-k/ai-to-pdf-action/actions/workflows/ci.yml/badge.svg)](https://github.com/jv-k/ai-to-pdf-action/actions/workflows/ci.yml)  [![CodeFactor](https://www.codefactor.io/repository/github/jv-k/ai-to-pdf-action/badge/master)](https://www.codefactor.io/repository/github/jv-k/ai-to-pdf-action/overview/master)
 
 This workflow action uses [Ghostscript](https://www.ghostscript.com/) to convert Adobe Illustrator `.ai` files to `.pdf`.
 
