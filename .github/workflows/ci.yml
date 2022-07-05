@@ -3,11 +3,11 @@ name: CI
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
 
-on: 
+on:
   push:
 
   pull_request:
-      
+
   workflow_dispatch:
 
   release:
@@ -16,7 +16,7 @@ on:
 defaults:
   run:
     shell: bash
-  
+
 jobs:
 
   shellcheck:
@@ -43,7 +43,7 @@ jobs:
       # To use this repository's private action, you must check out the repository
       - name: Checkout Repo
         uses: actions/checkout@v2
-      
+
       - name: Default paramaters
         uses: ./ # Uses action in the root directory
         with:
@@ -59,7 +59,7 @@ jobs:
       - name: Display Results
         run: |
           git show --summary
-          
+
           echo "Input file:"
           du -h .github/workflows/testfile-in.ai
 
@@ -68,4 +68,3 @@ jobs:
 
           echo "Output file:"
           du -h build/testfile-out.pdf
-

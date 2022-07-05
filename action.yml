@@ -3,7 +3,7 @@ name: 'ai-to-pdf-action'
 author: jv-k
 description: 'Github Actions to convert an Adobe Illustrator 👉🏻 PDF'
 
-inputs: 
+inputs:
   INPUT_FILE:
     description: The filepath of the .ai file to convert
     required: true
