@@ -1,3 +1,14 @@
+## 1.0.6 (July 05, 2022)
+- chore: updated package.json, updated CHANGELOG.md, bumped 1.0.5 -> 1.0.6
+- tests: Fixes #11
+- chore: Converted AI 👉🏻 PDF
+- chore: Converted AI 👉🏻 PDF
+- tests: closes #10
+- chore: Converted AI 👉🏻 PDF
+- chore: Converted AI 👉🏻 PDF
+- docs: added CodeFactor code quality badge
+- merge: branch 'release-1.0.5'
+
 ## 1.0.5 (July 05, 2022)
 - chore: updated package.json, updated CHANGELOG.md, bumped 1.0.4 -> 1.0.5
 - Merge branch 'master' of github.com:jv-k/ai-to-pdf-action
