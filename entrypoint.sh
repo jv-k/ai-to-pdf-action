@@ -48,7 +48,7 @@ remote_repo="https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GH_REPO}.git"
 
 cmd_stage="git add ${GS_OUTPUT_FILE}"
 cmd_commit="git commit -m \"${GH_COMMIT_MESSAGE}\""
-cmd_push="git push \"${remote_repo}\" HEAD:${GH_BRANCH}"
+cmd_push="git push \"${remote_repo}\" HEAD:${GH_BRANCH} --force"
 
 eval "$cmd_set_safe_dir" && \
 eval "$cmd_set_email" && \
