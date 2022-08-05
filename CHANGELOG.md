@@ -1,3 +1,18 @@
+## 1.0.7 (August 06, 2022)
+- chore: updated package.json, updated CHANGELOG.md, bumped 1.0.6 -> 1.0.7
+- bugfix: closes #13
+- chore: Converted AI 👉🏻 PDF
+- chore: Converted AI 👉🏻 PDF
+- Merge branch 'master' of github.com:jv-k/ai-to-pdf-action
+- chore: Converted AI 👉🏻 PDF
+- chore: Converted AI 👉🏻 PDF
+- docs: fixed typo
+- chore: Converted AI 👉🏻 PDF
+- chore: Converted AI 👉🏻 PDF
+- merge: branch 'release-1.0.6'
+- chore: Converted AI 👉🏻 PDF
+- chore: Converted AI 👉🏻 PDF
+
 ## 1.0.6 (July 05, 2022)
 - chore: updated package.json, updated CHANGELOG.md, bumped 1.0.5 -> 1.0.6
 - tests: Fixes #11
