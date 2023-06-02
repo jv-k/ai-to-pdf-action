@@ -26,7 +26,6 @@ inputs:
     description: 'Destination branch to push changes'
     default: ${{ github.ref	}}
     required: false
-
   GH_COMMIT_MESSAGE:
     description: Commit message
     required: true
@@ -35,10 +34,13 @@ inputs:
     description: The username of the user that will be used to commit the new files.
     required: false
     default: ${{ github.actor	}}
-
   GITHUB_TOKEN:
     description: Secret GitHub API token used to make API requests or git authentication.
     default: ${{ github.token }}
+    required: true
+  GH_CREATE_COMMIT:
+    description: If equal to true, a commit with the output pdf file will be created.
+    default: 'true'
     required: true
 
 runs:
@@ -54,6 +56,7 @@ runs:
     - ${{ inputs.GH_COMMIT_MESSAGE }}
     - ${{ inputs.GH_USER }}
     - ${{ inputs.GITHUB_TOKEN }}
+    - ${{ inputs.GH_CREATE_COMMIT }}
 
 branding:
   icon: book-open
