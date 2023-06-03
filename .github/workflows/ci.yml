@@ -76,3 +76,8 @@ jobs:
 
           echo "Output file:"
           du -h build/testfile-out.pdf
+      
+      - name: Remove last two commits
+        run: |
+          git reset --hard HEAD~2
+          git push -f
