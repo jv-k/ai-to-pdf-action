@@ -48,19 +48,13 @@ jobs:
         uses: ./ # Uses action in the root directory 
         with:
           INPUT_FILE: '.github/workflows/testfile-in.ai'
-
-      - name: Optional GS + file paramaters
-        uses: ./ # Uses action in the root directory
-        with:
-          INPUT_FILE: '.github/workflows/testfile-in.ai'
-          OUTPUT_FILE: 'build/testfile-out.pdf'
-          OPTIONAL_PARAMS: '-dCompatibilityLevel=1.4 -dPDFSETTINGS=/printer'
+          GH_CREATE_COMMIT: 'false'
 
       - name: Optional GS + file paramaters + NO commit
         uses: ./ # Uses action in the root directory
         with:
           INPUT_FILE: '.github/workflows/testfile-in.ai'
-          OUTPUT_FILE: 'build/testfile-out-no-commit.pdf'
+          OUTPUT_FILE: 'build/testfile-out.pdf'
           GH_CREATE_COMMIT: 'false'
           OPTIONAL_PARAMS: '-dCompatibilityLevel=1.4 -dPDFSETTINGS=/printer'
 
@@ -77,7 +71,3 @@ jobs:
           echo "Output file:"
           du -h build/testfile-out.pdf
       
-      - name: Remove last two commits
-        run: |
-          git reset --hard HEAD~2
-          git push -f
