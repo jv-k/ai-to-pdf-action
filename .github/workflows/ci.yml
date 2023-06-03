@@ -4,9 +4,9 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
 
 on:
-  push:
-
   pull_request:
+    branches:
+      - master
 
   workflow_dispatch:
 
