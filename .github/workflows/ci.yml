@@ -4,9 +4,9 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
 
 on:
-  push:
-
   pull_request:
+    branches:
+      - master
 
   workflow_dispatch:
 
@@ -25,7 +25,7 @@ jobs:
 
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Update packages & install shellcheck
         run: |
@@ -42,18 +42,20 @@ jobs:
     steps:
       # To use this repository's private action, you must check out the repository
       - name: Checkout Repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Default paramaters
         uses: ./ # Uses action in the root directory
         with:
           INPUT_FILE: '.github/workflows/testfile-in.ai'
+          GH_CREATE_COMMIT: 'false'
 
-      - name: Optional GS + file paramaters
+      - name: Optional GS + file paramaters + NO commit
         uses: ./ # Uses action in the root directory
         with:
           INPUT_FILE: '.github/workflows/testfile-in.ai'
           OUTPUT_FILE: 'build/testfile-out.pdf'
+          GH_CREATE_COMMIT: 'false'
           OPTIONAL_PARAMS: '-dCompatibilityLevel=1.4 -dPDFSETTINGS=/printer'
 
       - name: Display Results

@@ -24,6 +24,8 @@ GH_COMMIT_MESSAGE=${7}
 GITHUB_ACTOR=${8}
 GITHUB_TOKEN=${9}
 
+GH_CREATE_COMMIT=${10}
+
 if [ -z "$GS_INPUT_FILE" ] || [ ! -f "$GS_INPUT_FILE" ]; then
   error "Input file <${GS_INPUT_FILE}> is empty or doesn't exist."
 fi
@@ -46,10 +48,12 @@ cmd_set_name="git config --local user.name \"\$(git log --format='%an' HEAD^\!)\
 
 remote_repo="https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GH_REPO}.git"
 
-cmd_stage="git add ${GS_OUTPUT_FILE}"
-cmd_commit="git commit -m \"${GH_COMMIT_MESSAGE}\""
-cmd_push="git push \"${remote_repo}\" HEAD:${GH_BRANCH} --force"
-
+if [ "$GH_CREATE_COMMIT" != "false" ]; then
+  cmd_stage="git add ${GS_OUTPUT_FILE}"
+  cmd_commit="git commit -m \"${GH_COMMIT_MESSAGE}\""
+  cmd_push="git push \"${remote_repo}\" HEAD:${GH_BRANCH} --force"
+fi
+  
 eval "$cmd_set_safe_dir" && \
 eval "$cmd_set_email" && \
 eval "$cmd_set_name" && \
